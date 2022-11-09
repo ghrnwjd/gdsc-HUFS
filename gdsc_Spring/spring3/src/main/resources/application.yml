@@ -1,0 +1,8 @@
+server:
+  port: 8080
+
+datasource:
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/#######?serverTimezone=Asia/Seoul # #에 들어가는거에 table 이름 넣어 주시면 됩니다.
+  username: # database 명
+  password: # 비밀번호
