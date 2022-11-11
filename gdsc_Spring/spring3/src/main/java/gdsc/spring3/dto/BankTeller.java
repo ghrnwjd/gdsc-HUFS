@@ -29,7 +29,7 @@ public class BankTeller {
     @Column(nullable = false, length = 30)
     private String tellerPosition; // 은행원 직위
 
-    @OneToMany(mappedBy = "customerName")
+    @OneToMany(mappedBy = "service_bankteller")
     private List<Customer> customers = new ArrayList<>();
 
 
