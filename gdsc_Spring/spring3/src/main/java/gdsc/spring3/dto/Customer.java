@@ -31,7 +31,17 @@ public class Customer {
     @Column(nullable = false, length = 20)
     private List<String> service_bankteller;
 
-    public void setService_bankteller(String service_bankteller) {
-        this.service_bankteller.add(service_bankteller);
+    public void setService_bankteller(boolean flag, String service_bankteller) {
+        if (flag)
+            this.service_bankteller.add(service_bankteller);
+        else {
+            int index = this.service_bankteller.indexOf(service_bankteller);
+            List<String> new_list = null;
+            for (int i = 0; i < this.service_bankteller.size(); i++) {
+                if(i != index)
+                    new_list.add(this.service_bankteller.get(i));
+            }
+            this.service_bankteller = new_list;
+        }
     }
 }

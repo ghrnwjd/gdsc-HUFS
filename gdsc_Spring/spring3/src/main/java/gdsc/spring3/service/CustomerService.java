@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @Service
 public class CustomerService {
 
@@ -42,6 +40,16 @@ public class CustomerService {
         });
 
         return customer1;
+    }
+
+    @Transactional
+    public void 상품탈퇴(int customerId, String service_bankteller_name) {
+        Customer customer = customerRepository.findById(customerId).orElseThrow(() -> {
+            return new IllegalArgumentException("존재하지 않는 회원입니다.");
+        });
+
+        customer.setService_bankteller(false, service_bankteller_name);
+        customerRepository.save(customer);
     }
 }
 
